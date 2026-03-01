@@ -130,7 +130,7 @@ int main() {
         for (int fd = 0; fd <= max_fd; fd++) {
             if (!FD_ISSET(fd, &read_fds)) continue;
 
-            // When a new connection is intiated
+            // 當發現有異動的fd是listenfd: 代表有新的連線請求
             if (fd == listenfd) {
                 struct sockaddr_in client_addr{};
                 socklen_t client_len = sizeof(client_addr);
